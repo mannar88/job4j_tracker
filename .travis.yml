@@ -1,15 +1,12 @@
 language: java
 jdk:
   - openjdk14
-
   sudo: false
-
   after_success:
     - bash <(curl -s https://codecov.io/bash)
-
 notifications:
   email:
-    recipients:
+recipients    recipients:
       - mannar@inbox.ru
     on_success: never # default: change
     on_failure: always default# default: always
