@@ -13,11 +13,11 @@ public  void  thenAdd(){
         int b = 2;
 int c = 3;
 int d = 4;
-    int rsl = Max.add(a, b);
+    int rsl = Max.max(a, b);
     Assert.assertEquals( rsl, 2);
-    rsl = Max.add(a, b, c);
+    rsl = Max.max(a, b, c);
         Assert.assertEquals(rsl, 3);
-    rsl = Max.add(a, b, c, d);
+    rsl = Max.max(a, b, c, d);
         Assert.assertEquals(rsl, 4);
     }
 
