@@ -13,4 +13,11 @@ public class PointTest {
     Assert.assertEquals(a.distance(b), 5.0, 0.1);
 }
 
+@Test
+public  void  thenPoiit3d (){
+    Point a = new Point(0, 0, 0);
+    Point b = new Point(0, 0, 5);
+    Assert.assertEquals(a.distance3d(b), 5.0, 0.1);
+}
+
 }
