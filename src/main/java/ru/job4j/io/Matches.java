@@ -18,7 +18,7 @@ public class Matches {
                 System.out.println("Осталось спичек: " + count);
                 turn = !turn;
             }
-else  if (count < matches) {
+else  if (matches >0 && matches <4 &&    count < matches) {
                 System.out.println("Превышение количества доступных спичек");
             }
 else{
