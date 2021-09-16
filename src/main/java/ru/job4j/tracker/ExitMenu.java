@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+
 public class ExitMenu implements UserAction{
 
     private final Output out;
