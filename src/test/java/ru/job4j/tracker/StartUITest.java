@@ -71,7 +71,7 @@ public class StartUITest {
     }
 
     @Test
-public  void thenFindItem() {
+public  void thenFindItemFalse() {
 Output output =new StubOutput();
 Tracker tracker = new Tracker();
     Input input = new StubInput(new  String[]{
@@ -96,7 +96,33 @@ new  StartUI(output).init(input, tracker, userActions);
     }
 
     @Test
-public  void thenFindItemsByName() {
+    public  void thenFindItemTrue() {
+        Output output =new StubOutput();
+        Tracker tracker = new Tracker();
+Item item = new Item("test");
+        Input input = new StubInput(new  String[]{
+                "0", "1", "1"
+        });
+        UserAction [] userActions = {
+                new FindItem(output),
+                new ExitMenu(output)
+        };
+tracker.add(item);
+        new  StartUI(output).init(input, tracker, userActions);
+        assertThat(output.toString(), is("Menu." + System.lineSeparator()
+                + "0. Поиск заявки по ID" + System.lineSeparator()
+                + "1. Выход" +System.lineSeparator()
+                + "=== Find item by id ====" + System.lineSeparator()
+                + "Enter id: " + System.lineSeparator()
++ item.toString() + System.lineSeparator()
+                + "Menu." + System.lineSeparator()
+                + "0. Поиск заявки по ID" + System.lineSeparator()
+                + "1. Выход" +System.lineSeparator()
+        ));
+    }
+
+    @Test
+public  void thenFindItemsByNameFalse() {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
         Input input = new StubInput(new  String[]{
@@ -122,8 +148,38 @@ assertThat(output.toString(), is(
     ));
     }
 
-@Test
-    public  void thenShowAllItems() {
+    @Test
+    public  void thenFindItemsByNameTrue() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = new Item("test");
+        Input input = new StubInput(new  String[]{
+                "0",
+                "test",
+                "1"
+        });
+        UserAction [] userActions = {
+                new FindItemsByName(output),
+                new ExitMenu(output)
+        };
+        tracker.add(item);
+        new  StartUI(output).init(input, tracker, userActions);
+        assertThat(output.toString(), is(
+                "Menu." + System.lineSeparator()
+                        +"0. Поииск заявки по имени" + System.lineSeparator()
+                        + "1. Выход" +System.lineSeparator()
+                        + "=== Find items by name ====" +System.lineSeparator()
+                        + "Enter name: " + System.lineSeparator()
++ item.toString() + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        +"0. Поииск заявки по имени" + System.lineSeparator()
+                        + "1. Выход" +System.lineSeparator()
+        ));
+    }
+
+
+    @Test
+    public  void thenShowAllItemsFalse() {
     Tracker tracker = new Tracker();
     Output output = new StubOutput();
     Input input = new StubInput(new  String[] {
@@ -145,5 +201,32 @@ assertThat(output.toString(), is(
                 + "1. Выход" + System.lineSeparator()
 ));
     }
+
+    @Test
+public  void thenShowAllItemsTrue() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("test");
+        Output output = new StubOutput();
+        Input input = new StubInput(new  String[] {
+                "0",
+                "1"
+        });
+        UserAction [] userActions = {
+                new ShowAllItems(output),
+                new ExitMenu(output)};
+        tracker.add(item);
+        new  StartUI(output).init(input, tracker, userActions);
+        assertThat(output.toString(), is(
+                "Menu." + System.lineSeparator()
+                        + "0. Ввывод всех заявок." + System.lineSeparator()
+                        + "1. Выход" + System.lineSeparator()
+                        + "=== Show all items ====" + System.lineSeparator()
++ item.toString() + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Ввывод всех заявок." + System.lineSeparator()
+                        + "1. Выход" + System.lineSeparator()
+        ));
+    }
+
 
 }
