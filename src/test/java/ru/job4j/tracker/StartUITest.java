@@ -228,5 +228,30 @@ public  void thenShowAllItemsTrue() {
         ));
     }
 
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {
+                        "2",
+                        "0"
+                }
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = new UserAction[]{
+                new ExitMenu(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                        "Menu." + ln
+                                + "0. Выход" + ln
+                                + "Не верный ввод" + ln
+                                + "Menu." + ln
+                                + "0. Выход" + ln
+                )
+        );
+    }
+
 
 }
