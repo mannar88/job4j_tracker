@@ -29,10 +29,15 @@ Input in = new  StubInput( new  String[]{ "1"});
     @Test
     public void whenInvalidInputDoubleTrue() {
         Output output = new StubOutput();
-        Input in = new StubInput(new String[]{"1", "2"});
+        Input in = new StubInput(new String[]{"1", "2", "3"});
         Input input = new  ValidateInput(output, in);
         int selected = input.askInt("Enter menu:");
         assertThat(selected, is(1));
+         selected = input.askInt("Enter menu:");
+        assertThat(selected, is(2));
+        selected = input.askInt("Enter menu:");
+        assertThat(selected, is(3));
+
     }
 
     @Test
