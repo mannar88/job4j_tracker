@@ -9,7 +9,11 @@ public final  class SingleTracker {
     }
 
     public  static  SingleTracker getInstance() {
-return  instance;
+
+        if ( instance== null ) {
+            instance = new SingleTracker();
+        }
+        return  instance;
 }
 
     public Item add(Item item) {
