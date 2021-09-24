@@ -10,5 +10,5 @@ names.add("Petr");
     names.add("Ivan");
 names.add("Stepan");
                 System.out.println(names);
+                }
     }
-}
