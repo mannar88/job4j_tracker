@@ -16,7 +16,7 @@ items.add(item);
     }
 
     public List <Item> findAll() {
-        return items;
+        return List.copyOf(items);
     }
 
     public List <Item> findByName(String key){
@@ -30,24 +30,22 @@ for (Item item : items) {
     }
 
     private int indexOf(int id) {
-        int rsl = 0;
-for (Item item : items) {
-if (item.getId() == id) {
-    break;
+        for (int i = 0; i < items.size(); i++) {
+if ( items.get(i).getId() == id) {
+    return  i;
 }
-rsl++;
-}
-        return rsl;
+        }
+        return -1;
     }
 
     public Item findById(int id) {
         int index = indexOf(id);
-        return index != items.size() ? items.get(index): null;
+        return index != -1 ? items.get(index): null;
     }
 
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        if ( index != items.size()) {
+        if ( index != -1) {
             item.setId(id);
 items.set(index, item);
             return true;
@@ -57,7 +55,7 @@ return false;
 
     public boolean delete(int id) {
 int index =indexOf(id);
-if ( index != items.size()) {
+if ( index != -1) {
 items.remove(index);
     return  true;
 }
