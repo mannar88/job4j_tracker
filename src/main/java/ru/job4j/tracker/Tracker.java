@@ -61,5 +61,4 @@ items.remove(index);
 }
 return  false;
     }
-
     }
