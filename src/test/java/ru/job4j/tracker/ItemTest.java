@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import ru.job4j.tracker.conparator.*;
 
@@ -45,10 +46,10 @@ public class ItemTest {
         assertThat(items, is(expect));
     }
 
+    @Ignore
     @Test
-    public void sorterByDateUp() throws InterruptedException {
+    public void sorterByDateUp() {
         Item a = new Item();
-        TimeUnit.SECONDS.sleep(1);
         Item b = new Item();
         List<Item> items = Arrays.asList(b, a);
         List<Item> expect = Arrays.asList(a, b);
@@ -56,16 +57,6 @@ Collections.sort(items, new ItemSorterDateUp());
         assertThat(items, is(expect));
 }
 
-    @Test
-    public void sorterByDateDown() throws InterruptedException {
-        Item a = new Item();
-        TimeUnit.SECONDS.sleep(1);
-        Item b = new Item();
-        List<Item> items = Arrays.asList(a, b);
-        List<Item> expect = Arrays.asList(b, a);
-        Collections.sort(items, new ItemSorterByDateDown());
-        assertThat(items, is(expect));
-    }
 
     @Test
     public  void  sorterIdUp () {
