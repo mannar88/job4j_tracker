@@ -13,7 +13,7 @@ users.putIfAbsent(user, new ArrayList<Account>());
     }
 
     public void addAccount(String passport, Account account) {
-User key = this.findByPassport(passport);
+User key = findByPassport(passport);
 if (key != null &&!users.get(key).contains(account)) {
 users.get(key).add(account);
 }
@@ -21,7 +21,7 @@ users.get(key).add(account);
 
     public User findByPassport(String passport) {
         for (User user : users.keySet()) {
-            if ( (user.getPassport().equals(passport))) {
+            if (user.getPassport().equals(passport)) {
                 return  user;
             }
         }
@@ -29,7 +29,7 @@ users.get(key).add(account);
     }
 
     public Account findByRequisite(String passport, String requisite) {
-User user = this.findByPassport(passport);
+User user = findByPassport(passport);
 if (user != null) {
 for (Account account : users.get(user)) {
 if (account.getRequisite().equals(requisite)) {
@@ -43,8 +43,8 @@ if (account.getRequisite().equals(requisite)) {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        Account srcAccount = this.findByRequisite(srcPassport, srcRequisite);
-        Account deftAccount = this.findByRequisite(destPassport, destRequisite);
+        Account srcAccount = findByRequisite(srcPassport, srcRequisite);
+        Account deftAccount = findByRequisite(destPassport, destRequisite);
         if (srcAccount!=null && deftAccount != null && srcAccount.getBalance() >= amount) {
 srcAccount.setBalance(srcAccount.getBalance() - amount);
 deftAccount.setBalance(deftAccount.getBalance() + amount);
