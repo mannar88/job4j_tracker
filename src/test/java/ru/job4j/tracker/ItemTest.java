@@ -46,16 +46,6 @@ public class ItemTest {
         assertThat(items, is(expect));
     }
 
-    @Ignore
-    @Test
-    public void sorterByDateUp() {
-        Item a = new Item();
-        Item b = new Item();
-        List<Item> items = Arrays.asList(b, a);
-        List<Item> expect = Arrays.asList(a, b);
-Collections.sort(items, new ItemSorterDateUp());
-        assertThat(items, is(expect));
-}
 
 
     @Test
