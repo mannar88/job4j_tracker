@@ -8,6 +8,17 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class StringCompareTest {
+
+    @Test
+    public void whenSpaseZerro () {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "",
+                ""
+        );
+        assertThat(rst, is(0));
+    }
+
     @Test
     public void whenStringsAreEqualThenZero () {
         StringCompare compare = new StringCompare();
