@@ -23,8 +23,8 @@ public class CountingAFunctionInARangeTest {
 
     @Test
     public void whenFunctionThen() {
-        List<Double> result = CountingAFunctionInARange.diapason(1, 3, x -> 2 *Math.pow(x, x));
-        List<Double> expected = Arrays.asList( 2D, 8D);
+        List<Double> result = CountingAFunctionInARange.diapason(1, 3, x ->  2 * Math.pow(2, x));
+        List<Double> expected = Arrays.asList( 4D, 8D);
         assertThat(result, is(expected));
     }
 
