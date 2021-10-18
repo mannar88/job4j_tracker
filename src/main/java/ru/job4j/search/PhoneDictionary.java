@@ -12,15 +12,14 @@ public class PhoneDictionary {
     }
 
     public ArrayList<Person> find(String key) {
-        BiPredicate<Person, String> predicateName = (p, s) -> p.getName().contains(s);
-        BiPredicate<Person, String> predicateSurnane = (p, s) -> p.getSurname().contains(s);
-        BiPredicate<Person, String> predicateFone = (p, s) -> p.getPhone().contains(s);
-        BiPredicate<Person, String> predicateAdress = (p, s) -> p.getAddress().contains(s);
-        BiPredicate<Person, String> combine = (p, s) -> predicateName.test(p, s) || predicateSurnane.test(p, s)
-    || predicateFone.test(p, s) || predicateAdress.test(p, s);
-        ArrayList<Person> result = new ArrayList<>();
+ArrayList <Person> result = new ArrayList<>();
+        Predicate < Person> predicateName = p -> p.getName().contains(key);
+Predicate < Person> predicateSurname = p -> p.getSurname().contains(key);
+Predicate <Person> predicateFone = p -> p.getPhone().contains(key);
+Predicate <Person> predicateAdress = p -> p.getAddress().contains(key);
+Predicate <Person> combine = predicateName.or(predicateSurname.or(predicateFone.or(predicateAdress)));
         for (Person person : persons) {
-            if (combine.test(person, key)) {
+            if (combine.test(person)) {
                 result.add(person);
             }
         }
