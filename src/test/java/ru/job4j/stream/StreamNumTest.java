@@ -9,7 +9,8 @@ import static org.junit.Assert.*;
 import static org.junit.Assert.assertThat;
 
 public class StreamNumTest {
-@Test
+
+    @Test
 public    void  positive (){
     List <Integer> list = List.of(-2, -1, 0, 1,2);
     assertThat(StreamNum.sortPositive(list), is(List.of(1,2)));

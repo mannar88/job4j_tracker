@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StreamNum {
-public  static  List <Integer> sortPositive (List <Integer> list){
-return list.stream().filter(
+public  static  Listst <Integer> sortPositive (List <Integer> list){
+return list.streamam().filter(
         i -> i> 0
 ).collect(Collectors.toList());
 }
