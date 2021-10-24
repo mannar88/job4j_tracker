@@ -1,6 +1,7 @@
 package ru.job4j.stream;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -10,4 +11,12 @@ List <Student> rsl = students.stream().filter(predict)
         .collect(Collectors.toList());
     return  rsl;
     }
+
+public Map<String , Student>  map (List <Student> list) {
+        return  list.stream().distinct()
+                .collect(Collectors.toMap(
+                        e -> e.getSurname(),
+                        e -> e
+                ));
+}
 }
