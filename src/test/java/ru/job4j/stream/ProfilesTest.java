@@ -13,15 +13,17 @@ public class ProfilesTest {
     @Test
     public void collect() {
         Address addressMSk = new Address("Москва", "Тверскя", 2, 1);
-    Address addressSpb = new Address("Санкт-Петербург", "Рубинштейна", 66, 4);
+        Address addressSpb = new Address("Санкт-Петербург", "Рубинштейна", 66, 4);
 Address addressEkb = new Address("Екатеринбург", "Бориса Ельцина", 1,1);
-    List <Profile> profiles = List.of(
+        Address addressDoubleMSk = new Address("Москва", "Тверскя", 2, 1);
+        List <Profile> profiles = List.of(
             new Profile(addressMSk),
             new Profile(addressSpb),
-            new Profile(addressEkb)
+            new Profile(addressEkb),
+                new Profile(addressDoubleMSk)
     );
-    List <Address> expect = List.of(addressMSk, addressSpb, addressEkb);
-        assertThat(new Profiles().collect(profiles), is(expect));
+    List <Address> expect = List.of(addressEkb, addressMSk, addressSpb);
+                assertThat(new Profiles().collect(profiles), is(expect));
 
     }
 
