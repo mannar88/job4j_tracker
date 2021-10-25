@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Класс эмулирует банковский процесс: добавление клиента, привязка счетов, перевод денег счета на счет
@@ -43,12 +44,12 @@ users.get(key).add(account);
      * @return - на выходе учетная запись клиента
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                return  user;
-            }
-        }
-        return null;
+        return  users.keySet()
+        .stream()
+        .filter(u -> u.getPassport().equals(passport))
+        .findAny()
+        .orElse(null);
+
     }
 
     /**
@@ -60,11 +61,11 @@ users.get(key).add(account);
     public Account findByRequisite(String passport, String requisite) {
 User user = findByPassport(passport);
 if (user != null) {
-for (Account account : users.get(user)) {
-if (account.getRequisite().equals(requisite)) {
-    return  account;
-}
-}
+return  users.get(user)
+        .stream()
+        .filter(a -> a.getRequisite().equals(requisite))
+        .findAny()
+        .orElse(null);
 }
         return null;
     }
