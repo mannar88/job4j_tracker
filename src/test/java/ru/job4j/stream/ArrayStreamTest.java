@@ -10,7 +10,6 @@ import static org.junit.Assert.*;
 import static org.junit.Assert.assertThat;
 
 public class ArrayStreamTest {
-
     @Test
     public void thenMatrix() {
     Integer [][] nums = {{1, 2, 3},
