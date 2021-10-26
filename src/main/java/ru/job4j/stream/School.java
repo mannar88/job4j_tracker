@@ -13,10 +13,11 @@ List <Student> rsl = students.stream().filter(predict)
     }
 
 public Map<String , Student>  map (List <Student> list) {
-        return  list.stream().distinct()
+        return  list.stream()
                 .collect(Collectors.toMap(
-                        e -> e.getSurname(),
-                        e -> e
+                        string -> string.getSurname(),
+                        s -> s,
+                        (f, s) -> f
                 ));
 }
 }
