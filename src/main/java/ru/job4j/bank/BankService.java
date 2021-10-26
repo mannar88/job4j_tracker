@@ -47,7 +47,7 @@ users.get(key).add(account);
         return  users.keySet()
         .stream()
         .filter(u -> u.getPassport().equals(passport))
-        .findAny()
+                .findFirst()
         .orElse(null);
 
     }
@@ -64,7 +64,7 @@ if (user != null) {
 return  users.get(user)
         .stream()
         .filter(a -> a.getRequisite().equals(requisite))
-        .findAny()
+        .findFirst()
         .orElse(null);
 }
         return null;
