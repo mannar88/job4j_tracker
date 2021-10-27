@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public class ArrayStream {
     public  static List <Integer> matrix (Integer[][] array) {
-       return  Arrays.stream(array).flatMap(Stream::of)
+       return Arrays.stream(array).flatMap(Stream::of)
                .collect(Collectors.toList());
     }
     }
