@@ -88,7 +88,7 @@ List < String>  expect = Arrays.asList(
                 "K1/SK1",
                 "K1"
         );
-List    expect = Arrays.asList(
+List    expect = List.of(
         "K2",
         "K2/SK1",
         "K2/SK1/SSK1",
