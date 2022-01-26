@@ -15,7 +15,7 @@ public class EditItem implements  UserAction{
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         out.println("=== Edit item ====");
         out.println("Enter id: ");
         int id = input.askInt("Enter id: ");
